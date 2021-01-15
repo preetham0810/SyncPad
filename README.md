@@ -36,6 +36,40 @@ Open [http://localhost:5173](http://localhost:5173).
 
 ---
 
+## Git timeline demo (for project presentation)
+
+Use this guide during your demo:
+
+- Medium article: [Git Time Travel — A Guide to Manipulating Git History](https://medium.com/@souviksen093/git-time-travel-a-guide-to-manipulating-git-history-937d314d39f8)
+
+### Quick demo flow
+
+Run these commands from project root:
+
+```bash
+git log --oneline --graph --decorate --all
+git checkout <commit_hash>
+git switch -
+git revert <commit_hash>
+git reset --soft HEAD~1
+git reset --mixed HEAD~1
+git reset --hard HEAD~1
+```
+
+### What to explain while demoing
+
+1. `git log --oneline --graph --decorate --all` shows the timeline clearly.
+2. `git checkout <commit_hash>` lets you inspect old project states (detached HEAD).
+3. `git switch -` returns you to your previous branch.
+4. `git revert <commit_hash>` creates a new commit that safely undoes changes.
+5. `git reset --soft HEAD~1` removes last commit but keeps changes staged.
+6. `git reset --mixed HEAD~1` removes last commit and unstages changes (default reset mode).
+7. `git reset --hard HEAD~1` removes last commit and discards local changes.
+
+> Safety note: Prefer `revert` for shared/public branches. Use `reset --hard` only for local/demo history.
+
+---
+
 ## Project structure
 
 ```
